@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="">
+    <title>QR</title>
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip"></a>
+    <noscript>
+      <p class="noscript">QR a besoin de JavaScript, exécuté localement dans votre navigateur. / QR needs JavaScript, which runs only in your browser.</p>
+    </noscript>
+    <header class="top wrap">
+      <div>
+        <h1 data-i18n="mark"></h1>
+        <p class="tagline" data-i18n="tagline"></p>
+      </div>
+      <div class="tools">
+        <div class="langs" role="group" data-i18n-aria="lang.group">
+          <button type="button" data-lang="fr" lang="fr" aria-pressed="true" data-i18n="lang.fr"></button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="false" data-i18n="lang.en"></button>
+        </div>
+        <button type="button" class="theme" id="theme"></button>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <div class="workspace">
+        <section class="form-col">
+          <div class="tabs" role="tablist" data-i18n-aria="tabs.label">
+            <button type="button" role="tab" id="tab-url" data-type="url" aria-controls="panel-url" aria-selected="true" data-i18n="tab.url"></button>
+            <button type="button" role="tab" id="tab-text" data-type="text" aria-controls="panel-text" aria-selected="false" tabindex="-1" data-i18n="tab.text"></button>
+            <button type="button" role="tab" id="tab-wifi" data-type="wifi" aria-controls="panel-wifi" aria-selected="false" tabindex="-1" data-i18n="tab.wifi"></button>
+            <button type="button" role="tab" id="tab-email" data-type="email" aria-controls="panel-email" aria-selected="false" tabindex="-1" data-i18n="tab.email"></button>
+            <button type="button" role="tab" id="tab-phone" data-type="phone" aria-controls="panel-phone" aria-selected="false" tabindex="-1" data-i18n="tab.phone"></button>
+            <button type="button" role="tab" id="tab-sms" data-type="sms" aria-controls="panel-sms" aria-selected="false" tabindex="-1" data-i18n="tab.sms"></button>
+            <button type="button" role="tab" id="tab-vcard" data-type="vcard" aria-controls="panel-vcard" aria-selected="false" tabindex="-1" data-i18n="tab.vcard"></button>
+          </div>
+
+          <div role="tabpanel" id="panel-url" aria-labelledby="tab-url">
+            <div class="field">
+              <label for="url" data-i18n="url.label"></label>
+              <input id="url" type="url" inputmode="url" autocomplete="url" spellcheck="false" maxlength="2048" data-i18n-placeholder="url.placeholder" aria-describedby="url-hint url-error">
+              <p id="url-hint" class="hint" data-i18n="url.hint"></p>
+              <p id="url-error" class="error" data-error-for="url"></p>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-text" aria-labelledby="tab-text" hidden>
+            <div class="field">
+              <label for="text" data-i18n="text.label"></label>
+              <textarea id="text" rows="5" data-i18n-placeholder="text.placeholder" aria-describedby="text-error"></textarea>
+              <p id="text-error" class="error" data-error-for="text"></p>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-wifi" aria-labelledby="tab-wifi" hidden>
+            <div class="field">
+              <label for="ssid" data-i18n="wifi.ssid"></label>
+              <input id="ssid" type="text" autocomplete="off" spellcheck="false" maxlength="32" aria-describedby="ssid-error">
+              <p id="ssid-error" class="error" data-error-for="ssid"></p>
+            </div>
+            <div class="field">
+              <label for="wifi-encryption" data-i18n="wifi.encryption"></label>
+              <select id="wifi-encryption" aria-describedby="wifi-encryption-error">
+                <option value="WPA" data-i18n="wifi.wpa"></option>
+                <option value="WEP" data-i18n="wifi.wep"></option>
+                <option value="nopass" data-i18n="wifi.nopass"></option>
+              </select>
+              <p id="wifi-encryption-error" class="error" data-error-for="wifi-encryption"></p>
+            </div>
+            <div class="field">
+              <label for="wifi-password" data-i18n="wifi.password"></label>
+              <input id="wifi-password" type="text" autocomplete="off" spellcheck="false" maxlength="63" aria-describedby="wifi-password-error">
+              <p id="wifi-password-error" class="error" data-error-for="wifi-password"></p>
+            </div>
+            <label class="check" for="wifi-hidden">
+              <input id="wifi-hidden" type="checkbox">
+              <span data-i18n="wifi.hidden"></span>
+            </label>
+          </div>
+
+          <div role="tabpanel" id="panel-email" aria-labelledby="tab-email" hidden>
+            <div class="field">
+              <label for="email" data-i18n="email.address"></label>
+              <input id="email" type="email" autocomplete="email" spellcheck="false" maxlength="254" aria-describedby="email-error">
+              <p id="email-error" class="error" data-error-for="email"></p>
+            </div>
+            <div class="field">
+              <label for="email-subject" data-i18n="email.subject"></label>
+              <input id="email-subject" type="text" autocomplete="off" maxlength="200" aria-describedby="email-subject-error">
+              <p id="email-subject-error" class="error" data-error-for="email-subject"></p>
+            </div>
+            <div class="field">
+              <label for="email-body" data-i18n="email.body"></label>
+              <textarea id="email-body" rows="4" aria-describedby="email-body-error"></textarea>
+              <p id="email-body-error" class="error" data-error-for="email-body"></p>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-phone" aria-labelledby="tab-phone" hidden>
+            <div class="field">
+              <label for="phone" data-i18n="phone.number"></label>
+              <input id="phone" type="tel" autocomplete="tel" spellcheck="false" maxlength="32" aria-describedby="phone-hint phone-error">
+              <p id="phone-hint" class="hint" data-i18n="phone.hint"></p>
+              <p id="phone-error" class="error" data-error-for="phone"></p>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-sms" aria-labelledby="tab-sms" hidden>
+            <div class="field">
+              <label for="sms-number" data-i18n="sms.number"></label>
+              <input id="sms-number" type="tel" autocomplete="tel" spellcheck="false" maxlength="32" aria-describedby="sms-number-error">
+              <p id="sms-number-error" class="error" data-error-for="sms-number"></p>
+            </div>
+            <div class="field">
+              <label for="sms-message" data-i18n="sms.message"></label>
+              <textarea id="sms-message" rows="4" aria-describedby="sms-message-error"></textarea>
+              <p id="sms-message-error" class="error" data-error-for="sms-message"></p>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-vcard" aria-labelledby="tab-vcard" hidden>
+            <p class="hint" data-i18n="vcard.hint"></p>
+            <p id="vcard-error" class="error" data-error-for="vcard"></p>
+            <div class="pair">
+              <div class="field">
+                <label for="vcard-first" data-i18n="vcard.first"></label>
+                <input id="vcard-first" type="text" autocomplete="given-name" maxlength="64" aria-describedby="vcard-first-error">
+                <p id="vcard-first-error" class="error" data-error-for="vcard-first"></p>
+              </div>
+              <div class="field">
+                <label for="vcard-last" data-i18n="vcard.last"></label>
+                <input id="vcard-last" type="text" autocomplete="family-name" maxlength="64" aria-describedby="vcard-last-error">
+                <p id="vcard-last-error" class="error" data-error-for="vcard-last"></p>
+              </div>
+            </div>
+            <div class="pair">
+              <div class="field">
+                <label for="vcard-org" data-i18n="vcard.org"></label>
+                <input id="vcard-org" type="text" autocomplete="organization" maxlength="100" aria-describedby="vcard-org-error">
+                <p id="vcard-org-error" class="error" data-error-for="vcard-org"></p>
+              </div>
+              <div class="field">
+                <label for="vcard-title" data-i18n="vcard.title"></label>
+                <input id="vcard-title" type="text" autocomplete="organization-title" maxlength="100" aria-describedby="vcard-title-error">
+                <p id="vcard-title-error" class="error" data-error-for="vcard-title"></p>
+              </div>
+            </div>
+            <div class="pair">
+              <div class="field">
+                <label for="vcard-phone" data-i18n="vcard.phone"></label>
+                <input id="vcard-phone" type="tel" autocomplete="tel" spellcheck="false" maxlength="32" aria-describedby="vcard-phone-error">
+                <p id="vcard-phone-error" class="error" data-error-for="vcard-phone"></p>
+              </div>
+              <div class="field">
+                <label for="vcard-email" data-i18n="vcard.email"></label>
+                <input id="vcard-email" type="email" autocomplete="email" spellcheck="false" maxlength="254" aria-describedby="vcard-email-error">
+                <p id="vcard-email-error" class="error" data-error-for="vcard-email"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="vcard-url" data-i18n="vcard.url"></label>
+              <input id="vcard-url" type="url" autocomplete="url" spellcheck="false" maxlength="2048" aria-describedby="vcard-url-error">
+              <p id="vcard-url-error" class="error" data-error-for="vcard-url"></p>
+            </div>
+            <div class="field">
+              <label for="vcard-street" data-i18n="vcard.street"></label>
+              <input id="vcard-street" type="text" autocomplete="street-address" maxlength="100" aria-describedby="vcard-street-error">
+              <p id="vcard-street-error" class="error" data-error-for="vcard-street"></p>
+            </div>
+            <div class="pair">
+              <div class="field">
+                <label for="vcard-city" data-i18n="vcard.city"></label>
+                <input id="vcard-city" type="text" autocomplete="address-level2" maxlength="100" aria-describedby="vcard-city-error">
+                <p id="vcard-city-error" class="error" data-error-for="vcard-city"></p>
+              </div>
+              <div class="field">
+                <label for="vcard-region" data-i18n="vcard.region"></label>
+                <input id="vcard-region" type="text" autocomplete="address-level1" maxlength="100" aria-describedby="vcard-region-error">
+                <p id="vcard-region-error" class="error" data-error-for="vcard-region"></p>
+              </div>
+            </div>
+            <div class="pair">
+              <div class="field">
+                <label for="vcard-postal" data-i18n="vcard.postal"></label>
+                <input id="vcard-postal" type="text" autocomplete="postal-code" maxlength="100" aria-describedby="vcard-postal-error">
+                <p id="vcard-postal-error" class="error" data-error-for="vcard-postal"></p>
+              </div>
+              <div class="field">
+                <label for="vcard-country" data-i18n="vcard.country"></label>
+                <input id="vcard-country" type="text" autocomplete="country-name" maxlength="100" aria-describedby="vcard-country-error">
+                <p id="vcard-country-error" class="error" data-error-for="vcard-country"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="vcard-note" data-i18n="vcard.note"></label>
+              <textarea id="vcard-note" rows="3" maxlength="500" aria-describedby="vcard-note-error"></textarea>
+              <p id="vcard-note-error" class="error" data-error-for="vcard-note"></p>
+            </div>
+          </div>
+        </section>
+
+        <div class="preview-col">
+          <div class="plate-wrap">
+            <h2 class="kicker" id="preview-title" data-i18n="preview.kicker"></h2>
+            <div class="plate" aria-labelledby="preview-title">
+              <img id="preview" alt="" width="512" height="512" hidden>
+              <p id="preview-empty" data-i18n="preview.empty"></p>
+            </div>
+            <p id="capacity"></p>
+            <div class="meter" aria-hidden="true"><span id="meter-bar"></span></div>
+            <p id="form-error" class="error" data-error-for="form"></p>
+          </div>
+          <div class="settings">
+            <fieldset>
+              <legend data-i18n="custom.legend"></legend>
+              <div class="pair">
+                <div class="field">
+                  <label for="fg" data-i18n="color.fg"></label>
+                  <div class="color-line">
+                    <input id="fg" type="color" value="#1b1914">
+                    <input id="fg-hex" type="text" value="#1b1914" maxlength="7" spellcheck="false" autocapitalize="off" autocomplete="off" data-i18n-aria="color.fgHex" aria-describedby="fg-error">
+                  </div>
+                  <p id="fg-error" class="error" data-error-for="fg-hex"></p>
+                </div>
+                <div class="field">
+                  <label for="bg" data-i18n="color.bg"></label>
+                  <div class="color-line">
+                    <input id="bg" type="color" value="#f7f4ee">
+                    <input id="bg-hex" type="text" value="#f7f4ee" maxlength="7" spellcheck="false" autocapitalize="off" autocomplete="off" data-i18n-aria="color.bgHex" aria-describedby="bg-error">
+                  </div>
+                  <p id="bg-error" class="error" data-error-for="bg-hex"></p>
+                </div>
+              </div>
+              <p id="contrast" class="warning" role="status"></p>
+              <div class="field">
+                <label for="ecc" data-i18n="ecc.label"></label>
+                <select id="ecc" aria-describedby="ecc-note ecc-error">
+                  <option value="L" data-i18n="ecc.L"></option>
+                  <option value="M" selected data-i18n="ecc.M"></option>
+                  <option value="Q" data-i18n="ecc.Q"></option>
+                  <option value="H" data-i18n="ecc.H"></option>
+                </select>
+                <p id="ecc-note" class="hint" data-i18n="ecc.logo" hidden></p>
+                <p id="ecc-error" class="error" data-error-for="ecc"></p>
+              </div>
+              <div class="pair">
+                <div class="field">
+                  <label for="margin" data-i18n="margin.label"></label>
+                  <input id="margin" type="number" min="0" max="10" step="1" value="4" inputmode="numeric" aria-describedby="margin-hint margin-error">
+                  <p id="margin-hint" class="hint" data-i18n="margin.hint"></p>
+                  <p id="margin-error" class="error" data-error-for="margin"></p>
+                </div>
+                <div class="field">
+                  <label for="size" data-i18n="size.label"></label>
+                  <input id="size" type="number" min="128" max="4096" step="1" value="1024" inputmode="numeric" aria-describedby="size-error">
+                  <p id="size-error" class="error" data-error-for="size"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="logo" data-i18n="logo.label"></label>
+                <div class="logo-row">
+                  <input id="logo" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" aria-describedby="logo-hint logo-error">
+                  <button type="button" id="logo-clear" class="button" data-i18n="logo.clear" hidden></button>
+                </div>
+                <p id="logo-name" class="hint"></p>
+                <p id="logo-hint" class="hint" data-i18n="logo.hint"></p>
+                <p id="logo-error" class="error" data-error-for="logo"></p>
+              </div>
+            </fieldset>
+            <div class="export" role="group" data-i18n-aria="export.group">
+              <button type="button" id="export-png" class="button" data-i18n="export.png" disabled></button>
+              <button type="button" id="export-svg" class="button" data-i18n="export.svg" disabled></button>
+              <button type="button" id="export-copy" class="button" data-i18n="export.copy" disabled></button>
+            </div>
+            <p id="export-status" class="hint" role="status"></p>
+          </div>
+        </div>
+      </div>
+
+      <section class="batch" aria-labelledby="batch-title">
+        <h2 id="batch-title" data-i18n="batch.title"></h2>
+        <p class="help" data-i18n="batch.help"></p>
+        <div class="field">
+          <label for="batch-input" data-i18n="batch.label"></label>
+          <textarea id="batch-input" rows="8" spellcheck="false" data-i18n-placeholder="batch.placeholder" aria-describedby="batch-summary"></textarea>
+        </div>
+        <p id="batch-summary" class="hint" role="status"></p>
+        <ul id="batch-errors" class="batch-errors"></ul>
+        <div class="batch-actions">
+          <button type="button" id="batch-download" class="button" data-i18n="batch.download" disabled></button>
+        </div>
+        <p id="batch-status" class="hint" role="status"></p>
+      </section>
+
+      <footer class="footer">
+        <a href="https://mtaqys.github.io/" data-i18n="footer.link" rel="noopener noreferrer" referrerpolicy="no-referrer"></a>
+        <p data-i18n="footer.privacy"></p>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
