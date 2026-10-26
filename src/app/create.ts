@@ -239,9 +239,13 @@ export function mountCreate(root: HTMLElement, getLang: () => Lang): CreateView 
   const reset = el('button', { type: 'button', class: 'button button-secondary', 'data-i18n': 'color.reset' });
   const logoInput = el('input', {
     type: 'file',
-    id: 'logo-file',
+    class: 'sr',
     accept: 'image/png,image/jpeg,image/webp,image/gif',
   });
+  const logoButton = el('label', { class: 'button button-secondary' }, [
+    logoInput,
+    el('span', { 'data-i18n': 'logo.choose' }),
+  ]);
   const logoName = el('span', { class: 'filename' });
   const removeLogo = el('button', { type: 'button', class: 'button button-secondary', hidden: '', 'data-i18n': 'logo.remove' });
   const logoIssue = el('p', { class: 'issue', hidden: '' });
@@ -274,8 +278,8 @@ export function mountCreate(root: HTMLElement, getLang: () => Lang): CreateView 
     colorIssue,
     reset,
     el('div', { class: 'field' }, [
-      el('label', { for: 'logo-file', class: 'legend', 'data-i18n': 'logo.label' }),
-      el('div', { class: 'file' }, [logoInput, logoName, removeLogo]),
+      el('span', { class: 'legend', 'data-i18n': 'logo.label' }),
+      el('div', { class: 'file' }, [logoButton, logoName, removeLogo]),
       el('p', { class: 'hint', 'data-i18n': 'logo.hint' }),
       logoIssue,
     ]),

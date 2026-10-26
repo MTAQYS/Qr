@@ -21,11 +21,14 @@ describe('page', () => {
 
   it('links the final favicons, the touch icon and the manifest icons', () => {
     const html = read('./index.html');
-    expect(html).toContain('favicon.ico" sizes="48x48"');
-    expect(html).toContain('favicon.svg" type="image/svg+xml"');
-    expect(html).toContain('favicon-16.svg" type="image/svg+xml" sizes="16x16"');
-    expect(html).toContain('apple-touch-icon-180.png');
-    expect(html).toContain('manifest.webmanifest');
+    expect(html).not.toContain('%BASE_URL%');
+    expect(html).toContain('href="/favicon.ico" sizes="48x48"');
+    expect(html).toContain('href="/favicon.svg" type="image/svg+xml"');
+    expect(html).toContain('href="/favicon-16.svg" type="image/svg+xml" sizes="16x16"');
+    expect(html).toContain('href="/apple-touch-icon-180.png"');
+    expect(html).toContain('href="/manifest.webmanifest"');
+    expect(html).toContain('src="/theme-init.js"');
+    expect(html).toContain('href="/boot.css"');
     const manifest = JSON.parse(read('./public/manifest.webmanifest')) as {
       icons: { src: string; sizes: string }[];
       background_color: string;

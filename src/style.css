@@ -41,6 +41,11 @@
   box-sizing: border-box;
 }
 
+/* Author display values must not bring back a hidden control. */
+[hidden] {
+  display: none !important;
+}
+
 html {
   background: var(--dg-bg);
 }
@@ -522,6 +527,18 @@ video {
   box-shadow: 0 0 0 3px var(--dg-focus-ring);
 }
 
+.sr:focus,
+.sr:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+label.button:focus-within {
+  outline: 2px solid var(--dg-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--dg-focus-ring);
+}
+
 @media (min-width: 720px) {
   .page {
     padding-left: 24px;
@@ -534,6 +551,17 @@ video {
 
   .grid-2 {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 959px) {
+  .preview {
+    order: -1;
+  }
+
+  .plate {
+    min-height: 200px;
+    margin-top: 12px;
   }
 }
 

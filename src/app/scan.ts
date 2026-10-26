@@ -14,14 +14,12 @@ export interface ScanView {
 export function mountScan(root: HTMLElement, getLang: () => Lang): ScanView {
   const lead = el('p', { class: 'lead', 'data-i18n': 'scan.lead' });
   const drop = el('div', { class: 'drop' });
-  const file = el('input', { type: 'file', accept: 'image/png,image/jpeg,image/webp,image/gif', id: 'scan-file' });
-  const fileLabel = el('label', { class: 'button button-secondary', for: 'scan-file', 'data-i18n': 'scan.fileLabel' });
-  drop.append(
-    el('p', { 'data-i18n': 'scan.drop' }),
-    el('p', { class: 'hint', 'data-i18n': 'scan.dropHint' }),
+  const file = el('input', { type: 'file', accept: 'image/png,image/jpeg,image/webp,image/gif', class: 'sr' });
+  const fileLabel = el('label', { class: 'button button-secondary' }, [
     file,
-    fileLabel,
-  );
+    el('span', { 'data-i18n': 'scan.fileLabel' }),
+  ]);
+  drop.append(el('p', { 'data-i18n': 'scan.drop' }), el('p', { class: 'hint', 'data-i18n': 'scan.dropHint' }), fileLabel);
 
   const camera = el('button', { type: 'button', class: 'button button-primary', 'data-i18n': 'scan.camera', 'data-i18n-aria': 'scan.cameraLabel' });
   const unsupported = el('p', { class: 'hint', hidden: '', 'data-i18n': 'scan.unsupported' });
