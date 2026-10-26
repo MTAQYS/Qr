@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "title": "QR",
+    "titleWith": "QR — {section}",
+    "description": "Create a QR code in the browser: text, link, Wi-Fi, email, phone, contact or location. Nothing is sent.",
+    "imageAlt": "QR, a Dynamogic tool"
+  },
+  "skip": "Skip to content",
+  "header": {
+    "title": "QR",
+    "tagline": "Text, Wi-Fi, contact or location. Nothing leaves this device."
+  },
+  "lang": {
+    "group": "Language",
+    "fr": "FR",
+    "en": "EN",
+    "frLabel": "Français",
+    "enLabel": "English"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "nav": {
+    "label": "Content type"
+  },
+  "tab": {
+    "text": "Text",
+    "wifi": "Wi-Fi",
+    "email": "Email",
+    "phone": "Phone",
+    "vcard": "Contact",
+    "geo": "Location",
+    "scan": "Scan"
+  },
+  "text": {
+    "lead": "A link or a sentence, unchanged.",
+    "label": "Text or link",
+    "placeholder": "https://example.com or a sentence",
+    "hint": "The text is encoded exactly as written."
+  },
+  "wifi": {
+    "lead": "A phone joins the network by reading the code.",
+    "ssid": "Network name",
+    "password": "Password",
+    "securityLabel": "Security",
+    "security": {
+      "WPA": "WPA / WPA2 / WPA3",
+      "WEP": "WEP",
+      "nopass": "No password"
+    },
+    "hidden": "Hidden network",
+    "show": "Show",
+    "hide": "Hide",
+    "showLabel": "Show the password",
+    "hideLabel": "Hide the password",
+    "hint": "The password is written into the image. Sharing the image shares the password. It is not saved."
+  },
+  "email": {
+    "lead": "Opens a message ready to send.",
+    "address": "Address",
+    "subject": "Subject",
+    "body": "Message"
+  },
+  "phone": {
+    "lead": "A call, or a text message.",
+    "number": "Number",
+    "kindLabel": "Action",
+    "kind": {
+      "call": "Call",
+      "sms": "SMS"
+    },
+    "message": "Message",
+    "hint": "A leading + and the country code are recommended. Spaces and dashes are removed."
+  },
+  "vcard": {
+    "lead": "A contact card in vCard 3.0.",
+    "first": "First name",
+    "last": "Last name",
+    "org": "Organisation",
+    "title": "Job title",
+    "phone": "Phone",
+    "email": "Email",
+    "url": "Website",
+    "street": "Street",
+    "city": "City",
+    "region": "Region",
+    "postal": "Postal code",
+    "country": "Country",
+    "note": "Note"
+  },
+  "geo": {
+    "lead": "A place in decimal degrees, opened by the maps app.",
+    "lat": "Latitude",
+    "lng": "Longitude",
+    "label": "Place name",
+    "hint": "From −90 to 90, and −180 to 180. A decimal comma is accepted."
+  },
+  "preview": {
+    "title": "Preview",
+    "empty": "Enter something to show the QR code.",
+    "ready": "QR code ready.",
+    "meta": "{pixels} px · correction {ecc} · margin {margin}",
+    "label": "QR code, {kind}"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "ecc": {
+    "label": "Error correction",
+    "low": "L · 7%",
+    "medium": "M · 15%",
+    "quartile": "Q · 25%",
+    "high": "H · 30%",
+    "hint": "A higher level survives more damage and holds less data.",
+    "logo": "Error correction is H, so the code stays readable under the logo."
+  },
+  "size": {
+    "label": "Size",
+    "value": "{pixels} px"
+  },
+  "margin": {
+    "label": "Margin",
+    "value": "{count} modules",
+    "hint": "4 modules is the usual quiet zone."
+  },
+  "color": {
+    "foreground": "Color",
+    "background": "Background",
+    "foregroundHex": "Hex code of the color",
+    "backgroundHex": "Hex code of the background",
+    "contrast": "Contrast {ratio} : 1",
+    "warn": "Below 3 : 1, some readers can no longer see the code.",
+    "invalid": "Enter a hexadecimal color, for example #1c1a17.",
+    "reset": "Reset colors"
+  },
+  "logo": {
+    "label": "Centre logo",
+    "hint": "An image in the centre. Error correction switches to H. The file stays on this device.",
+    "choose": "Choose an image",
+    "remove": "Remove",
+    "tooBig": "The image is over 2 MB.",
+    "unreadable": "This image could not be read."
+  },
+  "action": {
+    "png": "PNG",
+    "svg": "SVG",
+    "copy": "Copy",
+    "pngLabel": "Download PNG",
+    "svgLabel": "Download SVG",
+    "copyLabel": "Copy the image",
+    "copied": "Image copied.",
+    "copiedText": "This browser cannot copy the image. The contents were copied instead.",
+    "copyFailed": "Could not copy.",
+    "downloaded": "Download started."
+  },
+  "error": {
+    "empty": "Add some content.",
+    "wifi_ssid": "Enter the network name.",
+    "wifi_password": "Enter the password, or choose “No password”.",
+    "email": "Enter a valid email address.",
+    "phone": "Enter a number with 3 to 15 digits.",
+    "vcard": "Enter at least a name or an organisation.",
+    "vcard_email": "The contact email address is not valid.",
+    "geo_lat": "Latitude must be between −90 and 90.",
+    "geo_lng": "Longitude must be between −180 and 180.",
+    "capacity": "This content is too long for a QR code.",
+    "unexpected": "The QR code could not be composed."
+  },
+  "scan": {
+    "lead": "Decode a QR code from an image, or from the camera where the browser allows it. Reading stays on this device.",
+    "drop": "Drop an image here",
+    "dropHint": "PNG, JPEG, WebP or GIF. 12 MB maximum.",
+    "fileLabel": "Choose an image",
+    "camera": "Camera",
+    "stop": "Stop",
+    "cameraLabel": "Read a QR code with the camera",
+    "stopLabel": "Stop the camera",
+    "unsupported": "The camera is not available here. An image still works.",
+    "denied": "Camera access was denied.",
+    "missing": "No camera was found.",
+    "failed": "The camera could not start.",
+    "none": "No QR code was found in this image.",
+    "unreadable": "This image could not be read.",
+    "tooBig": "The image is over 12 MB.",
+    "result": "Decoded text",
+    "placeholder": "Decoded text will appear here.",
+    "copy": "Copy text",
+    "copied": "Text copied.",
+    "copyFailed": "Could not copy. Select the text and copy it yourself.",
+    "found": "QR code read.",
+    "open": "Open",
+    "openLabel": "Open the decoded link",
+    "looking": "Looking for a QR code…"
+  },
+  "footer": {
+    "privacy": "Nothing is sent. No cookies. No analytics.",
+    "credit": "Un outil Dynamogic / A Dynamogic tool"
+  },
+  "app": {
+    "crash": "Something stopped the page. Reload it."
+  }
+}
